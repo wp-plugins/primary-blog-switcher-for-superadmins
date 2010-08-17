@@ -3,7 +3,7 @@
 Plugin Name: Primary Blog Switcher for SuperAdmins
 Plugin URI: http://wordpress.org/extend/plugins/primary-blog-switcher-for-superadmins/
 Description: Adds a dropdown primary blog switcher to a user's profile at SuperAdmin->Users->Edit. Users with blog 1 as their primary appear in an admin notice visible only to the SuperAdmin->Admin page.
-Author: D Sader
+Author: D. Sader
 Version: 3.0.1
 Author URI: http://dsader.snowotherway.org
 
