@@ -26,7 +26,7 @@ I can also use my <a href="http://wordpress.org/extend/plugins/menus/">Menus plu
 
 This section describes how to install the plugin and get it working.
 
-1. Upload `ds_wp3_primary_blog_switcher.phpp` to the `/wp-content/mu-plugins/` directory
+1. Upload `ds_wp3_primary_blog_switcher.php` to the `/wp-content/mu-plugins/` directory
 2. Edit user profiles as SuperAdmin Dashboard->SuperAdmin->Users->Edit
 3. View Dashboard->SuperAdmin->Admin for notices of users who have the main blog set as their primary blog.
 
