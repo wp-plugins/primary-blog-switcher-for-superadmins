@@ -55,10 +55,10 @@ The original code for the Primary Site switcher is in wp-admin-includes/ms.php. 
 
 = 3.0.1 =
 
-Initial Release for WP3.x multisite
+* Initial Release for WP3.x multisite
 
 == Upgrade Notice ==
 
 = 3.0.1 =
-WPMU2.9.2 version no longer supported.
+* WPMU2.9.2 version no longer supported.
 
