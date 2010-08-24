@@ -53,13 +53,14 @@ The original code for the Primary Site switcher is in wp-admin-includes/ms.php. 
 The plugin can be used to add users to a "Special BLog" by uncomment(remove the /* and */) this section in the plugin code and change the $special_blog_id:
 `/*
 			// "special blog" add $special_blog_id to add user to some, well, special blog.
-
+?>
 				<optgroup label="Other Blogs"></optgroup>
 				<optgroup label="Special Blog">
 				<?php $special_blog_id = '63'; //
 				$special_blog = get_blog_details( $special_blog_id ); ?>
 				<option value='<?php echo $special_blog_id ?>'>http://<?php echo $special_blog->domain.$special_blog->path ?></option>
 				</optgroup>
+<?
 */`
 
 == Changelog ==
