@@ -50,6 +50,17 @@ This section describes how to install the plugin and get it working.
 
 The original code for the Primary Site switcher is in wp-admin-includes/ms.php. I've basically copied that, but changed `get_current_user_id()` to `$edit_user = (int) $_GET['user_id'];` and added it to the "edit_user_profile" hook.
 
+The plugin can be used to add users to a "Special BLog" by uncomment(remove the /* and */) this section in the plugin code and change the $special_blog_id:
+`/*
+			// "special blog" add $special_blog_id to add user to some, well, special blog.
+
+				<optgroup label="Other Blogs"></optgroup>
+				<optgroup label="Special Blog">
+				<?php $special_blog_id = '63'; //
+				$special_blog = get_blog_details( $special_blog_id ); ?>
+				<option value='<?php echo $special_blog_id ?>'>http://<?php echo $special_blog->domain.$special_blog->path ?></option>
+				</optgroup>
+*/`
 
 == Changelog ==
 
