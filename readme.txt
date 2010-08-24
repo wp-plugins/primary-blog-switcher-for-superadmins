@@ -28,7 +28,7 @@ This section describes how to install the plugin and get it working.
 
 1. Upload `ds_wp3_primary_blog_switcher.php` to the `/wp-content/mu-plugins/` directory
 2. Edit user profiles as SuperAdmin Dashboard->SuperAdmin->Users->Edit
-3. View Dashboard->SuperAdmin->Admin for notices of users who have the main blog set as their primary blog.
+3. View Dashboard->SuperAdmin->Admin for notices of users who have the main blog set as their primary blog, or no blog at all.
 
 == Frequently Asked Questions ==
 
@@ -42,6 +42,7 @@ This section describes how to install the plugin and get it working.
 
 * Does this plugin filter the list of blogs already listed at a user's Dashboard->My Sites->Primary Site? No.
 
+* I can't change a user's primary blog, there are no blogs to choose from in the dropdown on their profile? Add the user first to a couple of blogs and try again.
 
 == Screenshots ==
 
