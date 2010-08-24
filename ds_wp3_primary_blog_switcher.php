@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: Primary Blog Switcher for SuperAdmins
-Plugin URI: http://dsader.snowotherway.org/wordpress-plugins/primary-blog-switcher-for-superadmins/
-Description: Adds a dropdown primary blog switcher to a user's profile at SuperAdmin->Users->Edit. Users with blog 1 as their primary appear in an admin notice visible only to the SuperAdmin->Admin page.
-Author: D. Sader
-Version: 3.0.1
+Plugin URI: http://wordpress.org/extend/plugins/primary-blog-switcher-for-superadmins/
+Description: Adds a dropdown primary blog switcher to a user's profile at SuperAdmin->Users->Edit. Users with blog 1 as their primary, or have no blog, appear in an admin notice on the SuperAdmin->Admin page.
+Author: D Sader
+Version: 3.0.1.1
 Author URI: http://dsader.snowotherway.org
 
  This program is free software; you can redistribute it and/or modify
@@ -16,7 +16,7 @@ Author URI: http://dsader.snowotherway.org
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
- 
+  
 */
 class ds_primary_blog_switcher {
 
@@ -30,19 +30,35 @@ class ds_primary_blog_switcher {
 			$query = "SELECT * FROM {$wpdb->users} WHERE ID !='1'"; // exclude "admin" user
 			$user_ids = $wpdb->get_results( $query, ARRAY_A );
 			if( $user_ids )	{
-				$list	= array();
+				$list1	= array();
+				$list2	= array();
 				foreach($user_ids as $user_id) {
 					$primary_blog = get_usermeta($user_id['ID'],'primary_blog');
-					if ($primary_blog == '1' || !$primary_blog) { // or "Dashboard blog" or no blog at all
+					if ($primary_blog == '1') { // or "Dashboard blog" or no blog at all
 						$url = clean_url( "user-edit.php?user_id=".$user_id['ID'] );
-					$list[]	= '<a class="delete" href="' . $url . '">' . $user_id['user_login'] . '</a>';
+					$list1[]	= '<a class="delete" href="' . $url . '">' . $user_id['user_login'] . '</a>';
+					} elseif(!$primary_blog) {
+						$url = clean_url( "user-edit.php?user_id=".$user_id['ID'] );
+					$list2[]	= '<a class="delete" href="' . $url . '">' . $user_id['user_login'] . '</a>';
 					}
 				}
-				$count = count($list);
-				echo '<div id="update-nag">The following '.$count.' users list blog 1 as their primary blog at <a href="'.admin_url().'wpmu-users.php">Site Admin->Users</a>: ';
+				//list users whose primary blog is main blog
+				if($list1)	{
+				$count = count($list1);
+				echo '<div id="update-nag">The following '.$count.' users list blog 1 as their primary blog: ';
 				if ($count)  
-				echo implode(' | ', $list); 
+				echo implode(' | ', $list1); 
 				echo '</div>';
+				}
+				
+				// ... no active blog
+				if($list2)	{
+				$count = count($list2);
+				echo '<div id="update-nag">The following '.$count.' users belong to no active blog: ';
+				if ($count)  
+				echo implode(' | ', $list2); 
+				echo '</div>';
+				}
 			}	
 	}
 	
@@ -83,7 +99,7 @@ class ds_primary_blog_switcher {
 			?>
 				<option value='<?php echo $blog->userblog_id ?>'><?php echo esc_url( get_home_url( $blog->userblog_id ) ) ?></option>
 				<?php } else { 
-				echo "N/A";
+				echo "User has no active blog";
 				}
 				}
 				?>
@@ -107,7 +123,7 @@ class ds_primary_blog_switcher {
 <?php } 
 
 /*
-
+?>
 			// "special blog" add $special_blog_id to add user to some, well, special blog.
 
 				<optgroup label="Other Blogs"></optgroup>
@@ -116,7 +132,7 @@ class ds_primary_blog_switcher {
 				$special_blog = get_blog_details( $special_blog_id ); ?>
 				<option value='<?php echo $special_blog_id ?>'>http://<?php echo $special_blog->domain.$special_blog->path ?></option>
 				</optgroup>
-
+<?php
 */
 
 ?>						
@@ -132,7 +148,7 @@ class ds_primary_blog_switcher {
 				if( $primary_blog != $blog->userblog_id ) // Set the primary blog again if it's out of sync with blog list.
 				update_user_meta( $edit_user, 'primary_blog', $blog->userblog_id );
 			} else {
-				echo "N/A";
+				echo "User has no active blog";
 		}
 		?>
 		</td>

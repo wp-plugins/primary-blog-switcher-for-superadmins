@@ -64,6 +64,10 @@ The plugin can be used to add users to a "Special BLog" by uncomment(remove the 
 */`
 
 == Changelog ==
+= 3.0.1.1 = 
+
+* Changes to text in dropdown and admin page notice to clarify case when user has no blog
+
 
 = 3.0.1 =
 
@@ -72,5 +76,6 @@ The plugin can be used to add users to a "Special BLog" by uncomment(remove the 
 == Upgrade Notice ==
 
 = 3.0.1 =
+
 * WPMU2.9.2 version no longer supported.
 
