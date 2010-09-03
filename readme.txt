@@ -62,6 +62,9 @@ $special_blog = get_blog_details( $special_blog_id ); ?>
 `
 
 == Changelog ==
+= 3.0.1.2 =
+* added is_multisite() check to add_action hooks
+
 = 3.0.1.1 = 
 
 * Changes to text in dropdown and admin page notice to clarify case when user has no blog
