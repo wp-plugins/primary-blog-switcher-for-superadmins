@@ -62,6 +62,9 @@ $special_blog = get_blog_details( $special_blog_id ); ?>
 `
 
 == Changelog ==
+= 3.0.1.3 =
+* added if( function_exists(get_sitewide_tags_option) 
+
 = 3.0.1.2 =
 * added is_multisite() check to add_action hooks
 
