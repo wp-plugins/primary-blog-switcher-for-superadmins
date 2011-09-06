@@ -3,21 +3,21 @@ Contributors: dsader
 Donate link: http://dsader.snowotherway.org
 Tags: multisite, network, primary blog, primary site, profile, my blogs, primary blog switcher, edit users,
 Requires at least: 3.0
-Tested up to: 3.0.1
+Tested up to: 3.2.1
 Stable tag: Trunk
 
-WP3.0 multisite "mu-plugin" to allow SuperAdmin to set the "Primary Blog" (aka Primary Site) of a user while editing a profile.
+WP3.0 multisite "mu-plugin" to allow Network Admin to set the "Primary Blog" (aka Primary Site) of a user while editing a profile.
 
 == Description ==
-WP3.0 multisite "mu-plugin" to allow SuperAdmin to set the "Primary Blog" (aka Primary Site) of a user while editing a user's profile.
+WP3.0 multisite "mu-plugin" to allow Network Admin to set the "Primary Blog" (aka Primary Site) of a user while editing a user's profile.
 
 Well, for whatever reasons (usually users fiddling around - I use WP3 multisite in a school with students grades 4-12), users aren't attached(or become unattached) to the correct "Primary Blog". 
 
 This isn't a deal breaker, but annoying when they login and are redirected to a blog that is not their expected primary. It also is annoying when I use other plugins to list user primary blog for display in a member directory, member profiles, etc.
 
-Telling users to reset their primary blog at their own Dashboard->My Blogs is a fix, but the SuperAdmin(Teacher in my case) can head off the confusion first with this plugin. There is no other way(AFAIK) for the SuperAdmin to set the "Primary Blog" of a user while editing their profile. 
+Telling users to reset their primary blog at their own Dashboard->My Blogs is a fix, but the SuperAdmin(Teacher in my case) can head off the confusion first with this plugin. There is no other way(AFAIK) for the Network Admin to set the "Primary Blog" of a user while editing their profile. 
 
-Now, I can quickly scan the SuperAdmin list of users and edit profiles and set primary blogs of any user correctly.
+Now, I can quickly scan the Network Admin list of users and edit profiles and set primary blogs of any user correctly.
 
 I can also use my <a href="http://wordpress.org/extend/plugins/menus/">Menus plugin</a> to toggle the My Sites menu item so users can no longer fiddle with the Primary Site switcher at all. Problem solved.
 
@@ -62,6 +62,9 @@ $special_blog = get_blog_details( $special_blog_id ); ?>
 `
 
 == Changelog ==
+= 3.0.1.5 =
+* Tested up to: WP 3.2.1
+
 = 3.0.1.3 =
 * added if( function_exists(get_sitewide_tags_option) 
 

@@ -4,7 +4,7 @@ Plugin Name: Primary Blog Switcher for SuperAdmins
 Plugin URI: http://wordpress.org/extend/plugins/primary-blog-switcher-for-superadmins/
 Description: Adds a dropdown primary blog switcher to a user's profile at SuperAdmin->Users->Edit. Users with blog 1 as their primary, or have no blog, appear in an admin notice on the SuperAdmin->Admin page.
 Author: D Sader
-Version: 3.0.1.3
+Version: 3.0.1.5
 Author URI: http://dsader.snowotherway.org
 
  This program is free software; you can redistribute it and/or modify
@@ -33,12 +33,12 @@ class ds_primary_blog_switcher {
 				$list1	= array();
 				$list2	= array();
 				foreach($user_ids as $user_id) {
-					$primary_blog = get_usermeta($user_id['ID'],'primary_blog');
+					$primary_blog = get_user_meta($user_id['ID'],'primary_blog', true);
 					if ($primary_blog == '1') { // or "Dashboard blog" or no blog at all
-						$url = clean_url( "user-edit.php?user_id=".$user_id['ID'] );
+						$url = esc_url( "user-edit.php?user_id=".$user_id['ID'] );
 					$list1[]	= '<a class="delete" href="' . $url . '">' . $user_id['user_login'] . '</a>';
 					} elseif(!$primary_blog) {
-						$url = clean_url( "user-edit.php?user_id=".$user_id['ID'] );
+						$url = esc_url( "user-edit.php?user_id=".$user_id['ID'] );
 					$list2[]	= '<a class="delete" href="' . $url . '">' . $user_id['user_login'] . '</a>';
 					}
 				}
@@ -71,12 +71,12 @@ class ds_primary_blog_switcher {
 			<td>
 			<?php
 			$all_blogs = get_blogs_of_user( $edit_user );
-			
+			$primary_blog = get_user_meta( $edit_user, 'primary_blog', true );
 			if( count( $all_blogs ) > 1 ) {
 				$found = false;
 			?>
 			<select name="primary_blog">
-				<?php if( $primary_blog = get_usermeta( $edit_user, 'primary_blog' ) ) { ?>
+				<?php if( $primary_blog ) { ?>
 				<optgroup label="Primary Blog">
 			<?php
 				foreach( (array) $all_blogs as $blog ) { 
