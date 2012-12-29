@@ -5,6 +5,8 @@ Tags: multisite, network, primary blog, primary site, profile, my blogs, primary
 Requires at least: 3.0
 Tested up to: 3.2.1
 Stable tag: Trunk
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 WP3.0 multisite "mu-plugin" to allow Network Admin to set the "Primary Blog" (aka Primary Site) of a user while editing a profile.
 
